@@ -8,6 +8,11 @@ gem 'sprockets', '2.11.0'
 gem 'bcrypt-ruby', '3.1.2', :require => 'bcrypt'
 gem 'bcrypt', '~> 3.1.7'
 
+# Use Twitter Bootstrap
+gem 'therubyracer'
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'
+
 group :development, :test do
   gem 'sqlite3', '1.3.8'
   gem 'rspec-rails'
@@ -17,6 +22,8 @@ group :test do
   gem 'selenium-webdriver', '2.35.1'
   gem 'capybara','1.1.4'
   gem 'factory_girl_rails', '4.2.1'
+  gem 'cucumber-rails', '1.4.0', :require => false
+  gem 'database_cleaner', github: 'bmabey/database_cleaner'
 end
 
 gem 'sass-rails', '4.0.2'
