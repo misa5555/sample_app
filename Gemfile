@@ -7,6 +7,9 @@ gem 'bootstrap-sass', '2.3.2.0'
 gem 'sprockets', '2.11.0'
 gem 'bcrypt-ruby', '3.1.2', :require => 'bcrypt'
 gem 'bcrypt', '~> 3.1.7'
+gem 'faker', '1.1.2'
+gem 'will_paginate', '3.0.4'
+gem 'bootstrap-will_paginate', '0.0.9'
 
 # Use Twitter Bootstrap
 gem 'therubyracer'
