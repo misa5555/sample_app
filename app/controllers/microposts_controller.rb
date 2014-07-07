@@ -19,7 +19,7 @@ class MicropostsController < ApplicationController
   end
   
   def reply
-    @user = User.find(params[:user])
+    @replied_user = User.find(params[:user])
   end
 
   end
