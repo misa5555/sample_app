@@ -4,6 +4,12 @@ class MicropostsController < ApplicationController
   
   def create
     @micropost = current_user.microposts.build(micropost_params)
+    reply_name = extract_reply_to(@micropost.content)
+    
+    if reply_name != "@"
+      @micropost.in_reply_to = User.find_by(name: reply_name).id
+    end
+
     if @micropost.save
       flash[:success] = "Micropost created!"
       redirect_to root_url
@@ -22,7 +28,6 @@ class MicropostsController < ApplicationController
     @replied_user = User.find(params[:user])
   end
 
-
   private
 
     def micropost_params
@@ -33,3 +38,12 @@ class MicropostsController < ApplicationController
       @micropost = current_user.microposts.find_by(id: params[:id])
       redirect_to root_url if @micropost.nil?
     end
+  
+    def extract_reply_to(content)
+      reply_to = "@"
+      if content =~ /\A@(\w+)/
+        reply_to = $1.to_s
+      end
+      reply_to
+    end
+end
