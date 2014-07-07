@@ -22,7 +22,6 @@ class MicropostsController < ApplicationController
     @replied_user = User.find(params[:user])
   end
 
-  end
 
   private
 
